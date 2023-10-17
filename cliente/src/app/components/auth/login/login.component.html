@@ -1,0 +1,22 @@
+<div class="container border w-25">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <h3>Inicio de sesión</h3>
+    <label>E-mail</label>
+    <input type="text" formControlName="email" class="form-control rounded-pill"
+           [ngClass]="{ 'is-invalid':  form.email.errors && form.email.touched}"/>
+    <div *ngIf="form.email.errors && form.email.touched" class="invalid-feedback">
+      <div *ngIf="form.email.errors.required">El email es obligatorio</div>
+      <div *ngIf="form.email.errors.email">El email debe de ser válido</div>
+    </div>
+    <label>Contraseña</label>
+    <input type="text" formControlName="password" class="form-control rounded-pill"
+           [ngClass]="{ 'is-invalid':  form.password.errors && form.password.touched}"/>
+    <div *ngIf="form.password.errors && form.password.touched" class="invalid-feedback">
+      <div *ngIf="form.password.errors.required">Password is required</div>
+      <div *ngIf="form.password.errors.minlength">Password must be at least 3 characters</div>
+    </div>
+    <div class="text-center mt-2 mb-2">
+      <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">Registrarse</button>
+    </div>
+  </form>
+</div>

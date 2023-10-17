@@ -1,0 +1,18 @@
+<ul>
+  <li>
+    <a [routerLink]="['/']" [routerLinkActive]="['bg-blue-600']" aria-current="page">Home</a>
+  </li>
+  <li>
+    <a [routerLink]="['/listAccounts']" [routerLinkActive]="['bg-blue-600']">Lista Cuentas</a>
+  </li>
+  <li>
+    <a [routerLink]="['/listUsers']" [routerLinkActive]="['bg-blue-600']">Lista Usuarios</a>
+  </li>
+  <li>
+    <a [routerLink]="['/signup']" [routerLinkActive]="['bg-blue-600']">Registro</a>
+  </li>
+  <li>
+    <a [routerLink]="['/login']" [routerLinkActive]="['bg-blue-600']">Login</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>

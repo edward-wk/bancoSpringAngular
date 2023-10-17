@@ -1,0 +1,55 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+
+    <h3>Inicio de sesión - Formulario reactivo</h3>
+    <label>Nombre</label>
+    <input type="text" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid':  form.nombre.errors && form.nombre.touched}" />
+    <div *ngIf="form.nombre.errors && form.nombre.touched" class="invalid-feedback">
+      <div *ngIf="form.nombre.errors.required">El nombre es obligatorio</div>
+    </div>
+    <label>Apellido 1</label>
+    <input type="text" formControlName="apellido1" class="form-control" [ngClass]="{ 'is-invalid':  form.apellido1.errors && form.apellido1.touched}" />
+    <div *ngIf="form.apellido1.errors && form.apellido1.touched" class="invalid-feedback">
+      <div *ngIf="form.apellido1.errors.required">El apellido 1 es obligatorio</div>
+    </div>
+    <label>Apellido 2</label>
+    <input type="text" formControlName="apellido2" class="form-control" [ngClass]="{ 'is-invalid':  form.apellido2.errors && form.apellido2.touched}" />
+    <div *ngIf="form.apellido2.errors && form.apellido2.touched" class="invalid-feedback">
+      <div *ngIf="form.apellido2.errors.required">El nombre es obligatorio</div>
+    </div>
+    <label>DNI/NIE</label>
+    <input type="text" formControlName="nif" class="form-control" [ngClass]="{ 'is-invalid':  form.nif.errors && form.nif.touched}" />
+    <div *ngIf="form.nif.errors && form.nif.touched" class="invalid-feedback">
+      <div *ngIf="form.nif.errors.required">El nombre es obligatorio</div>
+    </div>
+    <label>Telefono</label>
+    <input type="text" formControlName="telefono" class="form-control" [ngClass]="{ 'is-invalid':  form.telefono.errors && form.telefono.touched}" />
+    <div *ngIf="form.telefono.errors && form.telefono.touched" class="invalid-feedback">
+      <div *ngIf="form.telefono.errors.required">El nombre es obligatorio</div>
+    </div>
+    <label>Email</label>
+    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': form.email.errors && form.email.touched }" />
+    <div *ngIf="form.email.errors && form.email.touched" class="invalid-feedback">
+      <div *ngIf="form.email.errors.required">El email es obligatorio</div>
+      <div *ngIf="form.email.errors.email">El email debe de ser válido</div>
+    </div>
+
+    <label>Contraseña</label>
+    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': form.password.errors && form.password.touched }" />
+    <div *ngIf="form.password.errors && form.password.touched" class="invalid-feedback">
+      <div *ngIf="form.password.errors.required">Password is required</div>
+      <div *ngIf="form.password.errors.minlength">Password must be at least 6 characters</div>
+    </div>
+
+    <label>Repetir contraseña</label>
+    <input type="password" formControlName="repeatPass" class="form-control" [ngClass]="{ 'is-invalid': form.repeatPass.errors && form.repeatPass.touched }" />
+    <div *ngIf="form.repeatPass.errors && form.repeatPass.touched" class="invalid-feedback">
+      <div *ngIf="form.repeatPass.errors.required">Repetir contraseña es requerido</div>
+      <div *ngIf="form.repeatPass.errors.mustMatch">Las contraseñas debden de coincidir</div>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">Registrarse</button>
+      <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+    </div>
+  </form>
+</div>
