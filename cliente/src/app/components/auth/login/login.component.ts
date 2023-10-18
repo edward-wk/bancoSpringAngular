@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AbstractControlOptions, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,10 @@ import {AuthService} from "../../../services/auth.service";
 export class LoginComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
   }
 
   get form() {
@@ -23,8 +27,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
       {
-        email: ["", [Validators.required, Validators.email]],
-        password: ["", [Validators.required, Validators.minLength(3)]]
+        email: ["1@1", [Validators.required, Validators.email]],
+        password: ["pass1", [Validators.required, Validators.minLength(3)]]
       }
     );
   }
@@ -37,13 +41,19 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.registerForm.value).subscribe({
       next: value => {
-        if (value.status == 200)
-          console.log(value.body)
-        else
-          console.log('no existe');
+        if (value.status == 200) {
+          console.log('bien');
+          this.router.navigate(['/'])
+            .catch(reason => {
+            })
+            .then(() => {
+            })
+            .finally(() => {
+            })
+        }
       },
       error: err => {
-        console.log(err)
+        console.log('xxxx', err)
       }
     })
   }

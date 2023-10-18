@@ -37,13 +37,13 @@ export class SignupComponent implements OnInit {
         repeatPass: ["", Validators.required]
       },
       {
-        validator: this.MustMatch("password", "repeatPass") // Validando
+        validator: this.mustMatch("password", "repeatPass") // Validando
       } as AbstractControlOptions
     );
   }
 
   // custom validator to check that two fields match
-  MustMatch(controlName: string, matchingControlName: string) {
+  mustMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];

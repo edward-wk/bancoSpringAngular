@@ -16,7 +16,7 @@
       <div *ngIf="form.password.errors.minlength">Password must be at least 3 characters</div>
     </div>
     <div class="text-center mt-2 mb-2">
-      <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">Registrarse</button>
+      <button [disabled]="registerForm.invalid" class="btn btn-primary mr-1">Login</button>
     </div>
   </form>
 </div>

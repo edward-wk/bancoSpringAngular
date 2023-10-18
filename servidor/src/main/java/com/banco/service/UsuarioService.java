@@ -40,15 +40,6 @@ public class UsuarioService {
     }
   }
 
-  public int deleteById(int id) {
-    try {
-      usuarioRepository.deleteById(id);
-      return 0;
-    } catch (Exception e) {
-      return 1;
-    }
-  }
-
   public Optional<Usuario> getById(int id) {
     return usuarioRepository.findById(id);
   }
@@ -56,4 +47,9 @@ public class UsuarioService {
   public List<Usuario> getAll() {
     return usuarioRepository.findAll();
   }
+
+  public void delete(Integer id) {
+    usuarioRepository.deleteById(id);
+  }
+
 }

@@ -9,7 +9,8 @@ import {LoginComponent} from "./components/auth/login/login.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'index',
+    redirectTo: '',
     component: HomeComponent
   },
   {

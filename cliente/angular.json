@@ -5,11 +5,7 @@
   "projects": {
     "cliente": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -33,7 +29,11 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -103,6 +103,6 @@
     }
   },
   "cli": {
-    "analytics": "2e3c73c7-ec86-4bae-940e-d54df170a92d"
+    "analytics": "8caed26a-9fa8-4d43-b34d-1a17f693222b"
   }
 }

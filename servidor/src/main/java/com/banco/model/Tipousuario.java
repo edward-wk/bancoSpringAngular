@@ -16,6 +16,6 @@ public class Tipousuario {
   @Column(name = "idTipoUsuario", nullable = false)
   private Integer id;
 
-  @Column(name = "desc", nullable = false, length = 50)
+  @Column(name = "desc", length = 45)
   private String desc;
 }
